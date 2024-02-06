@@ -1,0 +1,26 @@
+---
+//HTMLを丸ごと出力する
+const htmlObject = "<h2>桃太郎</h2>";
+
+//リストの表示
+const items = ["猿", "犬", "キジ"];
+---
+
+<>
+    <Fragment set:html={htmlObject} />
+    <ul>
+        {items.map((item) => <li>{item}</li>)}
+    </ul>
+    <ul>
+        {
+            items.map((item) => (
+                // 複数ある場合は、以下のように<></>で囲む
+                <>
+                    <li>0歳の{item}</li>
+                    <li>1歳の{item}</li>
+                    <li>2歳の{item}</li>
+                </>
+            ))
+        }
+    </ul>
+</>
